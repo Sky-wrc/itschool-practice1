@@ -54,9 +54,11 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="128dp"
-        android:layout_height="64dp"
+        android:layout_width="120dp"
+        android:layout_height="62dp"
         android:layout_marginBottom="8dp"
+        android:textSize="12sp"
+        android:backgroundTint="@color/mycolour"
         android:text="Уменьшить на 1"
         app:layout_constraintBottom_toTopOf="@+id/listHistory"
         app:layout_constraintEnd_toStartOf="@+id/button"
@@ -65,9 +67,11 @@
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="128dp"
-        android:layout_height="64dp"
+        android:layout_width="120dp"
+        android:layout_height="62dp"
         android:layout_marginBottom="8dp"
+        android:textSize="12sp"
+        android:backgroundTint="@color/mycolour"
         android:text="Сброс"
         app:layout_constraintBottom_toTopOf="@+id/listHistory"
         app:layout_constraintEnd_toEndOf="parent"
@@ -76,11 +80,12 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="128dp"
-        android:layout_height="64dp"
+        android:layout_width="120dp"
+        android:layout_height="62dp"
         android:layout_marginBottom="8dp"
         android:text="Увеличить на 1"
-        android:textSize="14sp"
+        android:textSize="12sp"
+        android:backgroundTint="@color/mycolour"
         app:layout_constraintBottom_toTopOf="@+id/listHistory"
         app:layout_constraintEnd_toStartOf="@+id/button3"
         app:layout_constraintHorizontal_bias="0.5"

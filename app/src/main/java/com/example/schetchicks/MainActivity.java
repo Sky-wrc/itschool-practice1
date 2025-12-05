@@ -28,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
     private ArrayAdapter<String> adapter;
     int number = 0;
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
-    final static String nameVariableKey = "NAME_VARIABLE";
+    private static final String key_his = "history_key";
+    private static final String key_num = "number_key";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,26 +108,24 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-
-        outState.putInt(nameVariableKey, number);
-        outState.putStringArrayList(nameVariableKey, history);
         super.onSaveInstanceState(outState);
+        outState.putInt(key_num, number);
+        outState.putStringArrayList(key_his, history);
+
     }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
 
-        number = savedInstanceState.getInt(nameVariableKey);
+        number = savedInstanceState.getInt(key_num);
+        ArrayList<String> savedHistory = savedInstanceState.getStringArrayList(key_his);
 
-        history = savedInstanceState.getStringArrayList(nameVariableKey);
+        history.addAll(savedHistory);
+        adapter.notifyDataSetChanged();
 
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, history);
-        //listHistory.setAdapter(adapter);
         addItemToListView(String.valueOf(number));
-        System.out.print(number);
-        Log.v("MyTag", "получилось сохранить: " + number);
-        Log.v("MyTag", "это все что я смог босс(");
+
         count.setText(String.valueOf(number));
     }
 

@@ -1,11 +1,13 @@
 package com.example.schetchicks;
 
 import android.content.Intent;
+import android.util.Log;
 import android.os.Bundle;
 import java.util.ArrayList;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -26,8 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayAdapter<String> adapter;
     int number = 0;
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
-
-
+    final static String nameVariableKey = "NAME_VARIABLE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,7 +98,39 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+
     }
+
+
+
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+
+        outState.putInt(nameVariableKey, number);
+        outState.putStringArrayList(nameVariableKey, history);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        number = savedInstanceState.getInt(nameVariableKey);
+
+        history = savedInstanceState.getStringArrayList(nameVariableKey);
+
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, history);
+        //listHistory.setAdapter(adapter);
+        addItemToListView(String.valueOf(number));
+        System.out.print(number);
+        Log.v("MyTag", "получилось сохранить: " + number);
+        Log.v("MyTag", "это все что я смог босс(");
+        count.setText(String.valueOf(number));
+    }
+
+
     protected void addItemToListView(String last) {
         adapter.notifyDataSetChanged();
         //listHistory.scrollListBy(1);

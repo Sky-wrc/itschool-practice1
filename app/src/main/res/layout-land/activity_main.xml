@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="281dp"
+        android:layout_height="75dp"
+        android:gravity="center"
+        android:text="SCHETCHICK"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="1918dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:text="(простой счётчик)"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/count"
+        android:layout_width="122dp"
+        android:layout_height="64dp"
+        android:layout_marginBottom="27dp"
+        android:gravity="center"
+        android:text="0"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.693" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="173dp"
+        android:layout_height="71dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="@color/mycolour"
+        android:text="Сброс"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/listHistory"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="173dp"
+        android:layout_height="71dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="@color/mycolour"
+        android:text="Увеличить на 1"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/listHistory"
+        app:layout_constraintEnd_toStartOf="@+id/button3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button2" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="173dp"
+        android:layout_height="71dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="@color/mycolour"
+        android:text="Уменьшить на 1"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/listHistory"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ListView
+        android:id="@+id/listHistory"
+        android:layout_width="785dp"
+        android:layout_height="99dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
